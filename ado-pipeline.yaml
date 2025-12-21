@@ -2,33 +2,46 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
-variables:
-  TF_VERSION: "1.6.6"
+  vmImage: infra-pool
 
 steps:
-- task: TerraformInstaller@1
-  inputs:
-    terraformVersion: $(TF_VERSION)
+- script: |
+    sudo apt-get update -y
+    sudo apt-get install -y wget unzip
+    wget https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
+    unzip terraform_1.6.6_linux_amd64.zip
+    sudo mv terraform /usr/local/bin/
+    terraform version
+  displayName: Install Terraform
 
-- script: terraform init
+- script: |
+    cd infra
+    terraform init
   displayName: Terraform Init
 
-- script: terraform validate
+- script: |
+    cd infra
+    terraform validate
   displayName: Terraform Validate
 
-- script: terraform fmt -check
+- script: |
+    cd infra
+    terraform fmt -check
   displayName: Terraform Lint (fmt)
 
 - script: |
+    cd infra
     curl -L https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64 -o tfsec
     chmod +x tfsec
     ./tfsec .
   displayName: Terraform Security Scan (tfsec)
 
-- script: terraform plan -out=tfplan
+- script: |
+    cd infra
+    terraform plan
   displayName: Terraform Plan
 
-- script: terraform apply -auto-approve tfplan
+- script: |
+    cd infra
+    terraform apply -auto-approve
   displayName: Terraform Apply
