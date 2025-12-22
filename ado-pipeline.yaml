@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: infra-pool
+  name: infra-pool 
 
 steps:
 - script: |
