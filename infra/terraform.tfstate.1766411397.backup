@@ -1,0 +1,37 @@
+{
+  "version": 4,
+  "terraform_version": "1.11.2",
+  "serial": 18,
+  "lineage": "273d52ef-abfe-4e65-9799-26bc29a76162",
+  "outputs": {
+    "resource_group": {
+      "value": "sadaf-resource-group",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.rg",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/eac08841-5119-4501-b5ac-82e7a5d29114/resourceGroups/sadaf-resource-group",
+            "location": "eastus",
+            "managed_by": "",
+            "name": "sadaf-resource-group",
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
