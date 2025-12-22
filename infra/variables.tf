@@ -6,7 +6,7 @@ variable "location" {
 variable "rg_name" {
   description = "The name of the Resource Group"
   type        = string
-  default     = "my-rg-02"
+  default     = "sadaf-resource-group"
 }
 variable "vnet_cidr" {
   description = "The CIDR block for the Virtual Network"
