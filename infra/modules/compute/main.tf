@@ -14,7 +14,7 @@ resource "azurerm_linux_virtual_machine" "this" {
   name                = "tf-vm"
   resource_group_name = var.rg_name
   location            = var.location
-  size                = "Standard_B2s"
+  size                = "Standard_DS1_v2"
 
   admin_username      = "azureuser"
 
